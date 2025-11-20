@@ -1,0 +1,124 @@
+[
+    {
+        "id": "expense-reimbursement-portal",
+        "title": "Redesigning the Company Expense Reimbursement Portal",
+        "summary": "Reducing expense filing time from 20 minutes to 5 minutes through a strategic redesign of the internal tool.",
+        "tags": [
+            "Internal Tool",
+            "UX Redesign",
+            "Enterprise"
+        ],
+        "artifacts": {
+            "problemStatement": {
+                "title": "Expense Portal Redesign",
+                "currentState": "Currently, the Sales/Engineering team uses Legacy Tool Name/Excel to Process Name. The interface was built in Year and was not designed for mobile usage.",
+                "problem": "Users report that the process is Specific Complaint, e.g., confusing, slow. Data shows that Metric, e.g., 40% of submissions are returned due to errors.",
+                "businessImpact": [
+                    "Productivity Loss: Employees spend X hours per month on this administrative task.",
+                    "Finance Delay: Reimbursements are delayed by X days on average, causing dissatisfaction."
+                ],
+                "successMetrics": [
+                    "Reduce submission time by 50%.",
+                    "Reduce error/rejection rate to <5%."
+                ]
+            },
+            "personas": [
+                {
+                    "name": "Sales Sam",
+                    "role": "Account Executive",
+                    "goals": [
+                        "Get reimbursed quickly so I can pay my credit card bill.",
+                        "Spend as little time as possible on admin work.",
+                        "Upload receipts while on the go (mobile)."
+                    ],
+                    "frustrations": [
+                        "The current system logs me out every 5 minutes.",
+                        "I have to scan receipts, transfer to laptop, then upload.",
+                        "I don't know which category 'Client Dinner' falls under."
+                    ]
+                },
+                {
+                    "name": "Finance Fiona",
+                    "role": "Payroll Specialist",
+                    "goals": [
+                        "Process approvals before the monthly cutoff.",
+                        "Ensure compliance with company policy.",
+                        "Audit large expenses easily."
+                    ],
+                    "frustrations": [
+                        "Employees constantly upload blurry photos.",
+                        "I spend half my day emailing people to ask for missing details.",
+                        "The system allows duplicate entries."
+                    ]
+                }
+            ],
+            "matrix": [
+                {
+                    "feature": "OCR Receipt Scanning",
+                    "value": 5,
+                    "effort": 4,
+                    "priority": "Should Have",
+                    "reasoning": "High value, but expensive to build. MVP will use manual entry first."
+                },
+                {
+                    "feature": "Mobile App Upload",
+                    "value": 5,
+                    "effort": 3,
+                    "priority": "Must Have",
+                    "reasoning": "Essential for 'Sales Sam' on the road."
+                },
+                {
+                    "feature": "Dark Mode",
+                    "value": 2,
+                    "effort": 2,
+                    "priority": "Won't Have",
+                    "reasoning": "Nice UI, but adds zero business efficiency."
+                },
+                {
+                    "feature": "Auto-Policy Checks",
+                    "value": 4,
+                    "effort": 2,
+                    "priority": "Must Have",
+                    "reasoning": "High value for 'Finance Fiona' and easy to code logic."
+                },
+                {
+                    "feature": "Slack Notifications",
+                    "value": 3,
+                    "effort": 1,
+                    "priority": "Could Have",
+                    "reasoning": "Quick win, adds delight but not critical."
+                }
+            ],
+            "backlog": [
+                {
+                    "id": "EXP-101",
+                    "story": "As a Sales Rep, I want to upload a photo of a receipt from my phone so that I don't have to use a scanner.",
+                    "acceptanceCriteria": [
+                        "User can select photo from camera roll or take new photo.",
+                        "Supported formats: JPG, PNG, PDF.",
+                        "Max file size limit: 5MB.",
+                        "If upload fails, show specific error message."
+                    ]
+                },
+                {
+                    "id": "EXP-102",
+                    "story": "As a Finance Admin, I want to see a warning flag on duplicate expenses so that I don't pay the same receipt twice.",
+                    "acceptanceCriteria": [
+                        "System checks new entry against last 90 days of entries.",
+                        "If Date + Amount + Vendor match, display red 'Possible Duplicate' tag.",
+                        "Block submission unless user provides 'Override Reason'."
+                    ]
+                },
+                {
+                    "id": "EXP-103",
+                    "story": "As an Employee, I want to save a draft expense report so that I can finish it later if I get interrupted.",
+                    "acceptanceCriteria": [
+                        "'Save Draft' button visible on form.",
+                        "Data persists even if browser tab is closed (local storage).",
+                        "Drafts appear in 'My Pending Actions' list."
+                    ]
+                }
+            ]
+        }
+    }
+]

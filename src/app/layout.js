@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import SessionProviderWrapper from "@/components/SessionProviderWrapper";
+import StarBackground from "@/components/StarBackground";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,10 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProviderWrapper>
-          <Navbar />
-          <main>{children}</main>
-        </SessionProviderWrapper>
+        <StarBackground />
+        <Navbar />
+        <main>{children}</main>
       </body>
     </html>
   );

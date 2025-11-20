@@ -19,7 +19,7 @@ export const authOptions = {
         },
     },
     pages: {
-        error: '/admin/error', // Error code passed in query string as ?error=
+        error: '/error',
     },
 };
 

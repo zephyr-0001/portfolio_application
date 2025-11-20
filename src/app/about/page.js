@@ -41,9 +41,9 @@ export default function AboutPage() {
                     </div>
                 </div>
 
-                <div>
+                <div style={{ marginBottom: '2rem' }}>
                     <h3 style={{ color: 'var(--white)', marginBottom: '1rem', borderBottom: '1px solid var(--glass-border)', paddingBottom: '0.5rem' }}>Experience</h3>
-                    <div style={{ marginBottom: '1.5rem' }}>
+                    <div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
                             <h4 style={{ color: 'var(--white)' }}>Engineer I, Internal Systems</h4>
                             <span style={{ color: 'var(--accent)', fontSize: '0.9rem' }}>Jul 2024 - Present</span>
@@ -53,13 +53,41 @@ export default function AboutPage() {
                             Supporting Treasury Management Systems, leading requirement gathering, and driving UI/UX redesigns.
                         </p>
                     </div>
-                    <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
-                            <h4 style={{ color: 'var(--white)' }}>Intern</h4>
-                            <span style={{ color: 'var(--accent)', fontSize: '0.9rem' }}>Jan 2024 - Jun 2024</span>
-                        </div>
-                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>StoneX Group Inc.</p>
-                    </div>
+                </div>
+
+                <div>
+                    <h3 style={{ color: 'var(--white)', marginBottom: '1rem', borderBottom: '1px solid var(--glass-border)', paddingBottom: '0.5rem' }}>Beyond Work</h3>
+                    <p style={{ color: 'var(--text-primary)', lineHeight: 1.6 }}>
+                        When I'm not building products, you'll find me locked into an intense gaming session 🎮 or binge-watching the latest thriller series.
+                        There's something about unraveling a good mystery or pulling off a perfect strategy that just hits different.
+                        Always down for game recommendations or thriller suggestions! 🍿
+                    </p>
+                </div>
+
+                {/* Connect Section */}
+                <div style={{
+                    marginTop: '3rem',
+                    paddingTop: '2rem',
+                    borderTop: '1px solid var(--glass-border)',
+                    textAlign: 'center'
+                }}>
+                    <h3 style={{ color: 'var(--white)', marginBottom: '1rem' }}>Let's Connect</h3>
+                    <a
+                        href="https://www.linkedin.com/in/adithya-gs/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn"
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.5rem'
+                        }}
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        Connect on LinkedIn
+                    </a>
                 </div>
             </div>
         </div>
