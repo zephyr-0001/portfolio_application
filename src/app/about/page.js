@@ -3,14 +3,14 @@ import Image from 'next/image';
 export default function AboutPage() {
     return (
         <div className="container" style={{ paddingTop: 'var(--spacing-lg)', paddingBottom: 'var(--spacing-xl)' }}>
-            <div className="glass-panel" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <div className="glass-panel animate-scale-in" style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                    <h1 style={{ color: 'var(--white)', marginBottom: '0.5rem' }}>Hi, I'm Adithya GS 👋</h1>
-                    <h2 style={{ color: 'var(--accent)', fontSize: '1.2rem', fontWeight: 'normal' }}>Technical Business Analyst & Product Enthusiast</h2>
-                    <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>Bengaluru, India 🇮🇳</p>
+                    <h1 className="animate-slide-up" style={{ color: 'var(--white)', marginBottom: '0.5rem' }}>Hi, I'm Adithya GS 👋</h1>
+                    <h2 className="animate-slide-up delay-100" style={{ color: 'var(--accent)', fontSize: '1.2rem', fontWeight: 'normal' }}>Technical Business Analyst & Product Enthusiast</h2>
+                    <p className="animate-slide-up delay-200" style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>Bengaluru, India 🇮🇳</p>
                 </div>
 
-                <div style={{ marginBottom: '2rem' }}>
+                <div className="animate-slide-up delay-300" style={{ marginBottom: '2rem' }}>
                     <h3 style={{ color: 'var(--white)', marginBottom: '1rem', borderBottom: '1px solid var(--glass-border)', paddingBottom: '0.5rem' }}>The Short Story</h3>
                     <p style={{ color: 'var(--text-primary)', marginBottom: '1rem' }}>
                         I'm a Certified Scrum Product Owner (CSPO) currently working at StoneX Group Inc. I love bridging the gap between complex technical systems and human needs. My day-to-day involves translating "business speak" into clear technical requirements, redesigning internal tools to be actually usable, and making sure we're building the <i>right</i> thing.

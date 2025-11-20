@@ -3,9 +3,9 @@ import Link from 'next/link';
 export default function ProjectCard({ project }) {
     return (
         <Link href={`/project/${project.id}`} style={{ display: 'block' }}>
-            <div className="glass-panel" style={{
+            <div className="glass-panel hover-card" style={{
                 height: '100%',
-                transition: 'transform 0.2s ease',
+                transition: 'all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)',
                 cursor: 'pointer'
             }}>
                 <h3 style={{

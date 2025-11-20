@@ -19,11 +19,11 @@ export default async function ProjectPage({ params }) {
 
     return (
         <div className="container" style={{ paddingTop: 'var(--spacing-lg)', paddingBottom: 'var(--spacing-xl)' }}>
-            <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--accent)', marginBottom: 'var(--spacing-md)' }}>
+            <Link href="/" className="animate-fade-in" style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--accent)', marginBottom: 'var(--spacing-md)' }}>
                 ← Back to Projects
             </Link>
 
-            <header style={{ marginBottom: 'var(--spacing-lg)' }}>
+            <header className="animate-slide-up delay-100" style={{ marginBottom: 'var(--spacing-lg)' }}>
                 <h1 style={{ fontSize: '3rem', color: 'var(--white)', marginBottom: '1rem' }}>{project.title}</h1>
                 <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '800px' }}>{project.summary}</p>
                 <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem' }}>

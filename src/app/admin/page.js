@@ -1,28 +1,40 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function AdminDashboard() {
+    const { data: session, status } = useSession();
     const [projects, setProjects] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
     const [currentProject, setCurrentProject] = useState(null);
     const [posts, setPosts] = useState([]);
     const [activeTab, setActiveTab] = useState('projects'); // 'projects' or 'blog'
     const [currentPost, setCurrentPost] = useState(null);
-    const router = useRouter();
 
     useEffect(() => {
-        fetch('/api/projects')
-            .then(res => res.json())
-            .then(data => setProjects(data));
-        fetch('/api/posts').then(res => res.json()).then(data => setPosts(data));
-    }, []);
+        if (session) {
+            fetch('/api/projects').then(res => res.json()).then(data => setProjects(data));
+            fetch('/api/posts').then(res => res.json()).then(data => setPosts(data));
+        }
+    }, [session]);
 
-    const handleLogout = async () => {
-        await fetch('/api/auth', { method: 'DELETE' });
-        router.push('/admin/login');
-    };
+    if (status === "loading") {
+        return <div className="container" style={{ paddingTop: 'var(--spacing-lg)', color: 'var(--white)' }}>Loading...</div>;
+    }
+
+    if (status === "unauthenticated") {
+        return (
+            <div className="container" style={{ paddingTop: 'var(--spacing-lg)', display: 'flex', justifyContent: 'center' }}>
+                <div className="glass-panel" style={{ textAlign: 'center', padding: '3rem' }}>
+                    <h1 style={{ color: 'var(--white)', marginBottom: '1rem' }}>Admin Access Required</h1>
+                    <button onClick={() => signIn('google')} className="btn btn-primary">Sign in with Google</button>
+                </div>
+            </div>
+        );
+    }
+
+    const handleLogout = () => signOut();
 
     const handleSaveProject = async (e) => {
         e.preventDefault();
@@ -46,6 +58,8 @@ export default function AdminDashboard() {
                 // Refresh list
                 const updatedProjects = await fetch('/api/projects').then(r => r.json());
                 setProjects(updatedProjects);
+            } else {
+                alert('Failed to save. You might not be authorized.');
             }
         } catch (err) {
             alert('Invalid JSON');
@@ -67,6 +81,8 @@ export default function AdminDashboard() {
                 setCurrentPost(null);
                 const updatedPosts = await fetch('/api/posts').then(r => r.json());
                 setPosts(updatedPosts);
+            } else {
+                alert('Failed to save. You might not be authorized.');
             }
         } catch (err) {
             alert('Invalid JSON');
@@ -76,7 +92,10 @@ export default function AdminDashboard() {
     return (
         <div className="container" style={{ paddingTop: 'var(--spacing-lg)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-lg)' }}>
-                <h1 style={{ color: 'var(--white)' }}>Admin Dashboard</h1>
+                <div>
+                    <h1 style={{ color: 'var(--white)' }}>Admin Dashboard</h1>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Logged in as {session.user.email}</p>
+                </div>
                 <button onClick={handleLogout} className="btn">Logout</button>
             </div>
 
